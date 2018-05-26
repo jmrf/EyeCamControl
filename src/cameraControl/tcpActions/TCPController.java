@@ -4,12 +4,13 @@ import java.io.IOException;
 
 import cameraControl.client.RawDataClient;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+// import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+// import java.text.ParseException;
 
 public class TCPController {
 	public TCPController(String addr,int port) throws IOException {
 		mRawDataClient = new RawDataClient(addr, port);
-		
+
 	}
 
 	public void executeAction(AbstractRawTCPAction a)
@@ -26,7 +27,7 @@ public class TCPController {
 	{
 		mRawDataClient.connect();
 	}
-	
+
 	public void clearRessources()
 	{
 		try {
