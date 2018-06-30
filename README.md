@@ -32,7 +32,7 @@ Then place it in `src/lib` and run:
     cd src
 
     # compile
-    java -cp lib/json-simple-1.1.1.jar:. Main
+    javac -cp lib/json-simple-1.1.1.jar:. Main.java
 
     # run
     java -cp lib/json-simple-1.1.1.jar:. Main
