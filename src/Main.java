@@ -8,7 +8,7 @@ import cameraControl.jsonActions.JSONActionController;
 import ui.MainMenu;
 
 /**
- * 
+ *
  */
 
 /**
@@ -17,10 +17,19 @@ import ui.MainMenu;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        JSONActionController JSONcontroller = new JSONActionController("192.168.42.1",7878);
-        TCPController TCPcontroller = new TCPController("192.168.42.1",8787);
-        
-        CameraController cameraController = new CameraController(JSONcontroller,TCPcontroller);
+
+        String addr = "192.168.42.1"
+        Integer json_port = 7878
+        Integer tcp_port = 8787
+        // String addr = "10.15.12.1";
+        // Integer json_port = 111;
+        // Integer tcp_port = 111;
+
+
+        JSONActionController JSONcontroller = new JSONActionController(addr, json_port);
+        TCPController TCPcontroller = new TCPController(addr, tcp_port);
+
+        CameraController cameraController = new CameraController(JSONcontroller, TCPcontroller);
         cameraController.initialise();
 
         MainMenu menu = new MainMenu(cameraController, new Scanner(System.in));
@@ -28,5 +37,5 @@ public class Main {
         menu.executeView();
         cameraController.clearRessources();
     }
-    
+
 }

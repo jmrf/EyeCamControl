@@ -21,8 +21,41 @@ You can currently:
 
 ## Run
 
-Your computer just need to be on the same network as the camera and the camera should use the adress 192.168.42.1
-(default one)
+Your computer just need to be on the same network as the camera and the camera should use the address 192.168.42.1 (default one)
+
+Otherwise, scan the network to find which IP address and port is using:
+
+```bash
+    ifconfig 	# determine the address
+```
+
+Should yield something like:
+
+```bash
+inet addr:10.15.12.101  Bcast:10.15.255.255 Mask:255.255.0.0
+
+```
+
+After that, using `nmap`:
+
+```bash
+    sudo nmap 10.15.12.0/24
+```
+
+Resulting in:
+
+```bash
+    Nmap scan report for 10.15.12.1
+    Host is up (0.039s latency).
+    Not shown: 996 closed ports
+    PORT    STATE SERVICE
+    21/tcp  open  ftp        # File Tranfer Protocol port
+    80/tcp  open  http       # http server
+    111/tcp open  rpcbind
+    554/tcp open  rtsp       # Real Time Streaming Protocol port
+```
+
+Apparently for the new G-EYE 900 the default IP address is: `10.15.12.1`
 
 First download the [json-simple-1.1.1.jar](http://www.java2s.com/Code/Jar/j/Downloadjsonsimple111jar.htm).
 
